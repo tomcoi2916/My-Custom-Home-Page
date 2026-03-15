@@ -1,0 +1,44 @@
+body{
+    background:#0f172a;
+    color:#e2e8f0;
+    font-family:system-ui;
+    margin:40px;
+}
+
+.search{
+    margin-bottom:40px;
+}
+
+input{
+    width:420px;
+    padding:10px;
+    border-radius:8px;
+    border:none;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,260px);
+    gap:20px;
+}
+
+.card{
+    background:#1e293b;
+    padding:16px;
+    border-radius:10px;
+}
+
+.card h3{
+    margin-top:0;
+}
+
+.card a{
+    display:block;
+    color:#60a5fa;
+    text-decoration:none;
+    margin:6px 0;
+}
+
+.card a:hover{
+    text-decoration:underline;
+}
