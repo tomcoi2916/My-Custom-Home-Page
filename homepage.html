@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+
+<style>
+body{
+  background:#0f172a;
+  color:white;
+  font-family:Arial;
+  padding:40px;
+}
+
+h1{margin-bottom:20px;}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,200px);
+  gap:10px;
+}
+
+a{
+  display:block;
+  padding:10px;
+  background:#1e293b;
+  border-radius:8px;
+  color:#60a5fa;
+  text-decoration:none;
+}
+
+a:hover{
+  background:#334155;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Bookmarks</h1>
+
+<div id="bookmarks" class="grid"></div>
+
+<script>
+fetch("bookmarks.html")
+.then(res => res.text())
+.then(html => {
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html,"text/html");
+
+  const links = doc.querySelectorAll("a");
+
+  const container = document.getElementById("bookmarks");
+
+  links.forEach(link=>{
+    const a=document.createElement("a");
+    a.href=link.href;
+    a.textContent=link.textContent;
+    container.appendChild(a);
+  });
+
+});
+</script>
+
+</body>
+</html>
